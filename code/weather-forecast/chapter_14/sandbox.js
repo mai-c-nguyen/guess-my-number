@@ -1,30 +1,30 @@
-// //store data in local storage
+//store data in local storage
 
-// localStorage.setItem('name', 'mario');
-// localStorage.setItem('age', 50);
+localStorage.setItem('name', 'mario');
+localStorage.setItem('age', 50);
 
-// // get data from local storage
+// get data from local storage
 
-// let name = localStorage.getItem('name');
-// let age = localStorage.getItem('age');
-// console.log(name, age);
+let name = localStorage.getItem('name');
+let age = localStorage.getItem('age');
+console.log(name, age);
 
-// //update local storage
+//update local storage
 
-// localStorage.setItem('name', 'luigi');
-// localStorage.age = '40';
-// name = localStorage.getItem('name');
-// age = localStorage.getItem('age');
-// console.log(name, age);
+localStorage.setItem('name', 'luigi');
+localStorage.age = '40';
+name = localStorage.getItem('name');
+age = localStorage.getItem('age');
+console.log(name, age);
 
-// //deleting data from the local storage
+//deleting data from the local storage
 
-// // localStorage.removeItem('name');
-// localStorage.clear();
+// localStorage.removeItem('name');
+localStorage.clear();
 
-// name = localStorage.getItem('name');
-// age = localStorage.getItem('age');
-// console.log(name, age);
+name = localStorage.getItem('name');
+age = localStorage.getItem('age');
+console.log(name, age);
 
 const todos = [
   {text: "play football", author: "shaun"},
