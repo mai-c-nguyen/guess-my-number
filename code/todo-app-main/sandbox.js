@@ -1,7 +1,8 @@
 // element.parentNode.parentNode.removeChild(element.parentNode);
-const addForm = document.querySelector('.add')
+const addForm = document.querySelector('.add');
 const list = document.querySelector('.list-group-todos');
-
+const searchForm = document.querySelector('.search');
+const text = document.querySelector('.text');
 const generateTemplate = todo => {
   const html = `
     <li class="list-group">
@@ -19,7 +20,7 @@ addForm.addEventListener('submit', e => {
   console.log(todo);
   if(todo.length){
   generateTemplate(todo);
-  // addForm.reset();
+  addForm.reset();
   }
 });
 
@@ -33,28 +34,53 @@ list.addEventListener('click', e => {
   }
 });
 
-const getToDos = (callback) => {
-  const request = new XMLHttpRequest();
-  request.addEventListener('readystatechange', () => {
-    // console.log(request, request.readyState);
-    if(request.readyState === 4 && request.status === 200){
-      // console.log(request.responseText);
-      callback(undefined, request.responseText);
-    } else if(request.readyState === 4){
-      callback('could not fetch data', undefined);
-    }
-  });
-  request.open('GET', 'https://jsonplaceholder.typicode.com/todoss/');
-  request.send();
-};
-
-getToDos((err, data) => {
-  console.log('callback fired');
-  if(err){
-    console.log(err);
-  } else {
-    console.log(data);
+searchForm.addEventListener('keyup', e => {
+  e.preventDefault();
+  if(e.target.contains(text.value)) {
+    text.classList.add('d-block');
   }
+
 });
 
+
+
+
+
+
+// const getToDos = (callback) => {
+//   const request = new XMLHttpRequest();
+//   request.addEventListener('readystatechange', () => {
+//     // console.log(request, request.readyState);
+//     if(request.readyState === 4 && request.status === 200){
+//       // console.log(request.responseText);
+//       callback(undefined, request.responseText);
+//     } else if(request.readyState === 4){
+//       callback('could not fetch data', undefined);
+//     }
+//   });
+//   request.open('GET', 'https://jsonplaceholder.typicode.com/todoss                /');
+//   request.send();
+// };
+
+// getToDos((err, data) => {
+//   console.log('callback fired');
+//   if(err){
+//     console.log(err);
+//   } else {
+//     console.log(data);
+//   }
+// });
+
+// let partyPromise = false;
+// let giveParty = new Promise(function (resolve, reject) {
+//  setTimeout(() => {
+//  if (partyPromise) {
+//  resolve("I given party to friends");
+//  } else {
+//  reject("I am not given party to friends");
+//  }
+//  }, 5 * 1000);
+// });
+
+// console.log(giveParty);
 
